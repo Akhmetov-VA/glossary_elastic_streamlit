@@ -11,6 +11,7 @@ debugpy==1.8.0
 decorator==5.1.1
 elastic-transport==8.11.0
 elasticsearch==8.11.1
+et-xmlfile==1.1.0
 exceptiongroup==1.2.0
 executing==2.0.1
 gitdb==4.0.11
@@ -31,6 +32,7 @@ matplotlib-inline==0.1.6
 mdurl==0.1.2
 nest-asyncio==1.5.8
 numpy==1.26.2
+openpyxl==3.1.2
 packaging==23.2
 pandas==2.1.4
 parso==0.8.3

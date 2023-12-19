@@ -11,14 +11,14 @@ services:
       elastic:
         condition: "service_started"
     volumes:
-      - /home/admin01/vadim/glossary:/app
+      - /media/admin01/storage1/vadim/glossary:/app
     ports:
-      - "8501:80"
+      - "27363:80"
     networks:
       - elastic
     links:
       - elastic
-    command: ["streamlit", "run", "app.py"]
+    command: ["streamlit", "run", "app.py", "--server.port", "80"]
 
   elastic:
     image: elastic/elasticsearch:8.9.1
@@ -30,7 +30,7 @@ services:
     networks:
       - elastic
     volumes:
-      - es-data:/usr/share/elasticsearch/data
+      - /media/admin01/storage1/vadim/glossary/elastic_data:/usr/share/elasticsearch/data
     deploy:
       resources:
         limits:
