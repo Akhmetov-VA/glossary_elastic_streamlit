@@ -124,7 +124,7 @@ def main():
                     st.write(f'Для термина {value}')
                     st.write(f'Всего документов найдено - {len(result)}')
                     # st.write(result[:10])
-                    out = pd.DataFrame([{'Наименование документа': value['_source']['title'], 
+                    out = pd.DataFrame([{'Наименование документа': value['_source']['title'].split('Канцелярия')[1], 
                             'Содержимое': value['_source']['content'][:200]}for value in result])
                     st.write(out)
                     
@@ -141,11 +141,10 @@ def main():
                 result = [value for value in out if value['_id'] in intersection_ids]
                 st.write(f'Для терминов {", ".join(termin)}')
                 st.write(f'Всего документов найдено - {len(result)}')
-                out = pd.DataFrame([{'Наименование документа': value['_source']['title'], 
+                out = pd.DataFrame([{'Наименование документа': value['_source']['title'].split('Канцелярия/')[1], 
                             'Содержимое': value['_source']['content'][:200]}for value in result])
                 st.write(out)
                 
     
-        
 if __name__ == "__main__":
     main()
